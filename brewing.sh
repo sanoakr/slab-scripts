@@ -175,8 +175,7 @@ if [ $PROXY -eq 1 ]; then
         echo proxy = cache.st.ryukoku.ac.jp:8080 >> ~/.curlrc
     fi
 fi
-exit
-
+
 # Add Repository
 echo "* Tapping homebrew/binary"
 $PRT brew tap homebrew/binary 2> /dev/null
