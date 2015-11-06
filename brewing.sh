@@ -126,28 +126,57 @@ function cask_upgrade() {
     done
 }
 
+# usage message
+function usage_exit() {
+    echo "usage: $0 [-uiafpIPh]"
+    echo "  -u  Only Update & Upgrade installed packages [Default]"
+    echo "  -i  Install fundamental packages"
+    echo "  -a  Install all (fundamental & optional) packages"
+    echo "  -f  Force install cask packages"
+    echo "  -p  Print brew tasks (for check, not execute)"
+    echo "  -I  Install and setup Homebrew"
+    echo "  -P  Set network proxy cache.st.ryukoku.ac.jp:8080"
+    echo "  -h  Show this help"
+    exit 1
+}
+
+INSTALL=0
+PROXY=0
 BASE=0
 ALL=0
 FORCE=""
 PRT=""
-while getopts uiafph opt; do
+while getopts uiafpIPh opt; do
     case $opt in
-	"u" ) BASE=0; ALL=0 ;;
-	"i" ) BASE=1 ;;
-	"a" ) ALL=1 ;;
-	"f" ) FORCE="--force" ;;
-	"p" ) PRT="echo" ;;
-	"h" ) echo "usage: $0 [-uiafph]"
-	    echo "  -u   Only Update & Upgrade installed packages [Default]"
-	    echo "  -i   Install fundamental packages"
-	    echo "  -a   Install all (fundamental & optional) packages"
-	    echo "  -f   Force install cask packages"
-	    echo "  -p   Print brew tasks (for check, not execute)"
-	    echo "  -h   Show this help" ; exit ;;
-	* ) ;;
+        u) BASE=0; ALL=0 ;;
+        i) BASE=1 ;;
+        a) ALL=1 ;;
+        f) FORCE="--force" ;;
+        p) PRT="echo" ;;
+        I) INSTALL=1 ;;
+        P) PROXY=1 ;;
+        h) usage_exit ;;
+        \?) usage_exit ;;
     esac
 done
 
+# install homebrew
+if [ $INSTALL -eq 1 ]; then
+    if [ $PROXY -eq 0 ]; then
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    else
+        ruby -e "$(curl -x cache.st.ryukoku.ac.jp:8080 -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+fi
+# set proxy
+if [ $PROXY -eq 1 ]; then
+    git config --global http.proxy http://cache.st.ryukoku.ac.jp:8080
+    if grep -E '^proxy\s*=\s*cache.st.ryukoku.ac.jp:8080' ~/.curlrc > /dev/null; then
+        echo proxy = cache.st.ryukoku.ac.jp:8080 >> ~/.curlrc
+    fi
+fi
+exit
+
 # Add Repository
 echo "* Tapping homebrew/binary"
 $PRT brew tap homebrew/binary 2> /dev/null
