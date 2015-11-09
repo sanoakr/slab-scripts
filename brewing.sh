@@ -56,7 +56,7 @@ cask_base=("atom" \
 #    "microsoft-office" \
     "pandoc" \
     "sublime-text" \
-    "spideroakone" \
+#    "spideroakone" \
     "texshop" \
     "the-unarchiver" \
     "vlc" \
