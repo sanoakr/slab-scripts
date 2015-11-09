@@ -80,7 +80,7 @@ cask_opt=("alfred" \
     "locko" \
     "mactracker" \
 #    "name-mangler" \
-    "odrive" \
+#    "odrive" \
     "omnidazzle" \
     "processing" \
     "skim" \
@@ -101,6 +101,7 @@ function ck_install() {
 # checked cask install
 function ck_cask_install() {
     pkg=`echo $@ | cut -d " " -f 1`
+    echo $pkg
     if [ -z `echo "$cask_installed" | grep -x $pkg` ] ; then
 	$PRT brew cask install $FORCE $@
     else
@@ -113,14 +114,14 @@ function cask_upgrade() {
     for a in ${apps[@]};do
 	info=$(brew cask info $a)
 	if echo "$info"| grep -q "Not installed";then
-	    brew cask uninstall $a
-	    brew cask install $a
+	    $PRT brew cask uninstall $a
+	    $PRT brew cask install $a
 	fi
 	current=$(echo "$info"|grep "${caskroom}/${a}"|cut -d' ' -f1)
 	for dir in $(ls ${caskroom}/${a});do
 	    testdir="${caskroom}/${a}/${dir}"
 	    if [ "$testdir" != "$current" ];then
-		rm -rf "$testdir"
+		$PRT rm -rf "$testdir"
 	    fi
 	done
     done
@@ -202,7 +203,7 @@ The following package(s) will upgrade.
 $outdated
 
 Are you sure?
-If you do NOT want to upgrade, type Ctrl-c now.
+If you do NOT want to upgrade, type Ctrl-c now. (will be upgraded after 15sec waiting)
 EOF
 	read -t 15 dummy
 	$PRT brew upgrade
@@ -220,8 +221,9 @@ if [ $BASE -eq 1 ]; then
     for e in "${base[@]}"; do ck_install $e; done
 
     # install cask
+    $PRT find -L $appdir -type l -d 1 -exec echo Delete broken link {} \; -exec rm -f {}\;
     for e in "${cask_base[@]}"; do ck_cask_install $e; done
-
+    
     # optional install
     if [ $ALL -eq 1 ]; then
 	for e in "${opt[@]}"; do ck_install $e; done
