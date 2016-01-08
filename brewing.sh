@@ -50,6 +50,7 @@ cask_base=("atom" \
     "google-japanese-ime" \
     "inkscape" \
     "iterm2" \
+    "itsycal" \
     "latexit" \
     "mactex" \
     "menumeters"
@@ -161,19 +162,19 @@ while getopts uiafpIPh opt; do
     esac
 done
 
+# set proxy
+if [ $PROXY -eq 1 ]; then
+    git config --global http.proxy http://cache.st.ryukoku.ac.jp:8080
+    if grep -E '^proxy\s*=\s*cache.st.ryukoku.ac.jp:8080' ~/.curlrc > /dev/null; then
+        echo proxy = cache.st.ryukoku.ac.jp:8080 >> ~/.curlrc
+    fi
+fi
 # install homebrew
 if [ $INSTALL -eq 1 ]; then
     if [ $PROXY -eq 0 ]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
         ruby -e "$(curl -x cache.st.ryukoku.ac.jp:8080 -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-fi
-# set proxy
-if [ $PROXY -eq 1 ]; then
-    git config --global http.proxy http://cache.st.ryukoku.ac.jp:8080
-    if grep -E '^proxy\s*=\s*cache.st.ryukoku.ac.jp:8080' ~/.curlrc > /dev/null; then
-        echo proxy = cache.st.ryukoku.ac.jp:8080 >> ~/.curlrc
     fi
 fi
 
