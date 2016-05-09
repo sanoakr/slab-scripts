@@ -124,9 +124,11 @@ function cask_upgrade() {
 #	    $PRT brew cask uninstall $a
 	    $PRT brew cask install $a
 	fi
-	current=$(echo "$info"|grep "${caskroom}/${a}"|cut -d' ' -f2)
+	current=$(brew cask info $a |grep "${caskroom}/${a}"|cut -d' ' -f1)
 	for dir in $(ls ${caskroom}/${a});do
 	    testdir="${caskroom}/${a}/${dir}"
+#	    echo testdir=$testdir
+#	    echo current=$current
 	    if [ "$testdir" != "$current" ];then
 		$PRT rm -rf "$testdir"
 	    fi
