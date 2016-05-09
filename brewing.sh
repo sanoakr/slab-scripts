@@ -110,6 +110,11 @@ function ck_cask_install() {
 	echo "$pkg is already installed"
     fi
 }
+# cleanup
+function cleanup() {
+    brew cleanup
+    brew cask cleanup
+}
 # cleaned cask upgrade
 function cask_upgrade() {
     apps=($(brew cask list))
@@ -228,6 +233,12 @@ if [ $BASE -eq 1 ]; then
 	for e in "${cask_opt[@]}"; do ck_cask_install $e; done
 	#    brew cask alfred link
     fi
+fi
+
+cleanup
+
+list=`brew list`
+if echo "$list"| grep -q "aspell"; then
     cat <<EOF
 *** Add following lisp lines to your ~/.emacs
 *** if you want to use aspell on emacs.
@@ -235,5 +246,4 @@ if [ $BASE -eq 1 ]; then
 (eval-after-load "ispell"
   '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
 EOF
-
 fi
