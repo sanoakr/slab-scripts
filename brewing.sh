@@ -192,7 +192,7 @@ installed=`brew list`
 cask_installed=`brew cask list`
 
 echo "brew updating..."
-$PRT brew update
+$PRT brew update -v
 
 outdated=`brew outdated`
 if [ -n "$outdated" ]; then
