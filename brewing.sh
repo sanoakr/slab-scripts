@@ -164,18 +164,14 @@ done
 
 # set proxy
 if [ $PROXY -eq 1 ]; then
-    git config --global http.proxy http://cache.st.ryukoku.ac.jp:8080
-    if grep -E '^proxy\s*=\s*cache.st.ryukoku.ac.jp:8080' ~/.curlrc > /dev/null; then
-        echo proxy = cache.st.ryukoku.ac.jp:8080 >> ~/.curlrc
-    fi
+    ryukoku_proxy=http://cache.st.ryukoku.ac.jp:8080/
+    export http_proxy=$ryukoku_proxy
+    export https_proxy=$ryukoku_proxy
+    export all_proxy=$ryukoku_proxy
 fi
 # install homebrew
 if [ $INSTALL -eq 1 ]; then
-    if [ $PROXY -eq 0 ]; then
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    else
-        ruby -e "$(curl -x cache.st.ryukoku.ac.jp:8080 -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Add Repository
