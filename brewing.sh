@@ -116,7 +116,7 @@ function cask_upgrade() {
     for a in ${apps[@]};do
 	info=$(brew cask info $a)
 	if echo "$info"| grep -q "Not installed";then
-	    $PRT brew cask uninstall $a
+#	    $PRT brew cask uninstall $a
 	    $PRT brew cask install $a
 	fi
 	current=$(echo "$info"|grep "${caskroom}/${a}"|cut -d' ' -f1)
