@@ -125,6 +125,7 @@ function cask_upgrade() {
 	    $PRT brew cask install $a
 	fi
 	current=$(brew cask info $a |grep "${caskroom}/${a}"|cut -d' ' -f1)
+	echo currnet $a: $current
 	for dir in $(ls ${caskroom}/${a});do
 	    testdir="${caskroom}/${a}/${dir}"
 #	    echo testdir=$testdir
