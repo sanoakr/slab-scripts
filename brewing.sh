@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 # CASK directories
 appdir=/Applications
@@ -65,7 +65,7 @@ cask_base=("atom" \
     "xquartz")
 cask_opt=("alfred" \
     "appcleaner" \
-    "bathyscaphe" \	      
+#    "bathyscaphe" \	      
     "caffeine" \
     "displaylink" \
     "dropbox" \
@@ -85,6 +85,7 @@ cask_opt=("alfred" \
 #    "odrive" \
     "omnidazzle" \
     "processing" \
+    "radiant-player" \
     "skim" \
     "skype" \
     "sourcetree" \
@@ -124,7 +125,7 @@ function cask_upgrade() {
 #	    $PRT brew cask uninstall $a
 	    $PRT brew cask install $a
 	fi
-	current=$(brew cask info $a |grep "${caskroom}/${a}"|cut -d' ' -f1)
+	current=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1)
 	echo currnet $a: $current
 	for dir in $(ls ${caskroom}/${a});do
 	    testdir="${caskroom}/${a}/${dir}"
