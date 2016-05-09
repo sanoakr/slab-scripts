@@ -9,7 +9,7 @@ export HOMEBREW_CASK_OPTS="--appdir=$appdir --caskroom=$caskroom"
 base=("ack" \
     "aspell --with-lang-en" \
     "bash-completion" \
-    "emacs --cocoa --japanese" \
+    "emacs --with-cocoa --japanese" \
     "git" \
     "gnuplot" \
     "imagemagick" \
@@ -18,6 +18,7 @@ base=("ack" \
     "openssl" \
     "python" \
     "rename" \
+    "rmtrash" \
     "tree" \
     "vim")
 opt=("autoconf" \
