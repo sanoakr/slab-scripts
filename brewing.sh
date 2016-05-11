@@ -137,10 +137,9 @@ function cask_upgrade() {
 	done
     done
 }
-
 # usage message
 function usage_exit() {
-    echo "usage: $0 [-uiafpIPh]"
+    echo "usage: $0 [-uiapPlh]"
     echo "  -u  Only Update & Upgrade installed packages [Default]"
     echo "  -i  Install fundamental packages"
     echo "  -a  Install all (fundamental & optional) packages"
@@ -149,7 +148,19 @@ function usage_exit() {
 #    echo "  -I  Install and setup Homebrew"
     echo "  -P  Set network proxy cache.st.ryukoku.ac.jp:8080"
     echo "  -h  Show this help"
-    exit 1
+    exit 0
+}
+# pkg list
+function print_pkgs() {
+    echo "Fundamental Pkgs:"
+    echo ${base[@]}
+    echo "Optional Pkgs:"
+    echo ${opt[@]}
+    echo "Cask Fundamentals:"
+    echo ${cask_base[@]}
+    echo "Cask Optionals:"
+    echo ${cask_opt[@]}
+    exit 0
 }
 
 #INSTALL=0
@@ -158,7 +169,7 @@ BASE=0
 ALL=0
 FORCE=""
 PRT=""
-while getopts uiafpIPh opt; do
+while getopts uiapPlh opt; do
     case $opt in
         u) BASE=0; ALL=0 ;;
         i) BASE=1 ;;
@@ -167,6 +178,7 @@ while getopts uiafpIPh opt; do
         p) PRT="echo" ;;
 #        I) INSTALL=1 ;;
         P) PROXY=1 ;;
+        l) print_pkgs ;;
         h) usage_exit ;;
         \?) usage_exit ;;
     esac
