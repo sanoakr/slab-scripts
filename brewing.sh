@@ -94,8 +94,8 @@ cask_opt=("alfred" \
 
 # checked install
 function ck_install() {
-    pkg=`echo $@ | cut -d " " -f 1`
-    if [ -z `echo "$installed" | grep -x $pkg` ]; then
+    pkg=$(echo $@ | cut -d " " -f 1)
+    if [ -z $(echo "$installed" | grep -x $pkg) ]; then
 	$PRT brew install $@
     else
 	$PRT echo "$pkg is already installed"
@@ -103,9 +103,9 @@ function ck_install() {
 }
 # checked cask install
 function ck_cask_install() {
-    pkg=`echo $@ | cut -d " " -f 1`
+    pkg=$(echo $@ | cut -d " " -f 1)
     echo $pkg
-    if [ -z `echo "$cask_installed" | grep -x $pkg` ] ; then
+    if [ -z $(echo "$cask_installed" | grep -x $pkg) ] ; then
 	$PRT brew cask install $FORCE $@
     else
 	echo "$pkg is already installed"
@@ -144,15 +144,15 @@ function usage_exit() {
     echo "  -u  Only Update & Upgrade installed packages [Default]"
     echo "  -i  Install fundamental packages"
     echo "  -a  Install all (fundamental & optional) packages"
-    echo "  -f  Force install cask packages"
-    echo "  -p  Print brew tasks (for check, not execute)"
-    echo "  -I  Install and setup Homebrew"
+#    echo "  -f  Force install cask packages"
+    echo "  -p  Print brew tasks (for checking, not execute)"
+#    echo "  -I  Install and setup Homebrew"
     echo "  -P  Set network proxy cache.st.ryukoku.ac.jp:8080"
     echo "  -h  Show this help"
     exit 1
 }
 
-INSTALL=0
+#INSTALL=0
 PROXY=0
 BASE=0
 ALL=0
@@ -163,9 +163,9 @@ while getopts uiafpIPh opt; do
         u) BASE=0; ALL=0 ;;
         i) BASE=1 ;;
         a) ALL=1 ;;
-        f) FORCE="--force" ;;
+#        f) FORCE="--force" ;;
         p) PRT="echo" ;;
-        I) INSTALL=1 ;;
+#        I) INSTALL=1 ;;
         P) PROXY=1 ;;
         h) usage_exit ;;
         \?) usage_exit ;;
@@ -174,14 +174,15 @@ done
 
 # set proxy
 if [ $PROXY -eq 1 ]; then
-    ryukoku_proxy=http://cache.st.ryukoku.ac.jp:8080/
-    export http_proxy=$ryukoku_proxy
-    export https_proxy=$ryukoku_proxy
-    export all_proxy=$ryukoku_proxy
+    $PRT ryukoku_proxy=http://cache.st.ryukoku.ac.jp:8080/
+    $PRT export http_proxy=$ryukoku_proxy
+    $PRT export https_proxy=$ryukoku_proxy
+    $PRT export all_proxy=$ryukoku_proxy
 fi
 # install homebrew
-if [ $INSTALL -eq 1 ]; then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#if [ $INSTALL -eq 1 ]; then
+if [ ! $(which brew) ]; then 
+    $PRT ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Add Repository
@@ -194,16 +195,19 @@ $PRT brew tap sanoakr/slab 2> /dev/null
 #brew tap hirocaster/homebrew-mozc-emacs-helper
 
 # Cask install
-echo "* Install cask"
-$PRT brew install caskroom/cask/brew-cask 2> /dev/null
+if [ ! $(brew tap | grep "caskroom/cask") ]; then 
+    echo "* Install cask"
+    $PRT brew install caskroom/cask/brew-cask 2> /dev/null
+fi
 
-installed=`brew list`
-cask_installed=`brew cask list`
+# list installed pkgs
+installed=$(brew list)
+cask_installed=$(brew cask list)
 
 echo "brew updating..."
-$PRT brew update -v
+$PRT brew update
 
-outdated=`brew outdated`
+outdated=$(brew outdated)
 if [ -n "$outdated" ]; then
     cat << EOF
 The following package(s) will upgrade.
@@ -215,9 +219,7 @@ EOF
 	read -t 15 dummy
 	$PRT brew upgrade
 else
-    cat <<EOF
-No need upgrade packages.
-EOF
+    echo No need upgrade packages.
 fi
 
 echo "Check cask upgrade."
@@ -241,7 +243,7 @@ fi
 
 cleanup
 
-list=`brew list`
+list=$(brew list)
 if echo "$list"| grep -q "aspell"; then
     cat <<EOF
 *** Add following lisp lines to your ~/.emacs
