@@ -186,7 +186,7 @@ done
 
 # set proxy
 if [ $PROXY -eq 1 ]; then
-    $PRT ryukoku_proxy=http://cache.st.ryukoku.ac.jp:8080/
+    $PRT export ryukoku_proxy=http://cache.st.ryukoku.ac.jp:8080/
     $PRT export http_proxy=$ryukoku_proxy
     $PRT export https_proxy=$ryukoku_proxy
     $PRT export all_proxy=$ryukoku_proxy
