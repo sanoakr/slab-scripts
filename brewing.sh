@@ -147,14 +147,15 @@ function usage_exit() {
     echo "  -p  Print brew tasks (for checking, not execute)"
 #    echo "  -I  Install and setup Homebrew"
     echo "  -P  Set network proxy cache.st.ryukoku.ac.jp:8080"
+    echo "  -l  Show own package list"
     echo "  -h  Show this help"
     exit 0
 }
 # pkg list
 function print_pkgs() {
-    echo "Fundamental Pkgs:"
+    echo "Fundamental pkgs:"
     echo ${base[@]}
-    echo "Optional Pkgs:"
+    echo "Optional pkgs:"
     echo ${opt[@]}
     echo "Cask Fundamentals:"
     echo ${cask_base[@]}
