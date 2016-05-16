@@ -67,7 +67,7 @@ cask_opt=("alfred" \
     "appcleaner" \
 #    "bathyscaphe" \	      
     "caffeine" \
-    "displaylink" \
+#    "displaylink" \
     "dropbox" \
     "evernote" \
     "firefox" \
@@ -187,7 +187,7 @@ done
 
 # set proxy
 if [ $PROXY -eq 1 ]; then
-    $PRT ryukoku_proxy=http://cache.st.ryukoku.ac.jp:8080/
+    $PRT export ryukoku_proxy=http://cache.st.ryukoku.ac.jp:8080/
     $PRT export http_proxy=$ryukoku_proxy
     $PRT export https_proxy=$ryukoku_proxy
     $PRT export all_proxy=$ryukoku_proxy
@@ -217,8 +217,9 @@ fi
 installed=$(brew list)
 cask_installed=$(brew cask list)
 
-echo "brew updating..."
-$PRT brew update
+echo "* brew updating"
+$PRT brew update -v | while read; do echo -n .; done
+echo
 
 outdated=$(brew outdated)
 if [ -n "$outdated" ]; then
@@ -235,7 +236,7 @@ else
     echo No need upgrade packages.
 fi
 
-echo "Check cask upgrade."
+echo "* Check cask upgrade."
 cask_upgrade
 
 if [ $BASE -eq 1 ]; then
