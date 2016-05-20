@@ -17,6 +17,7 @@ base=("ack" \
     "nkf" \
     "openssl" \
     "python" \
+    "python3" \
     "rename" \
     "rmtrash" \
     "tree" \
@@ -143,7 +144,7 @@ function usage_exit() {
     echo "  -u  Only Update & Upgrade installed packages [Default]"
     echo "  -i  Install fundamental packages"
     echo "  -a  Install all (fundamental & optional) packages"
-#    echo "  -f  Force install cask packages"
+    echo "  -f  Force install cask packages"
     echo "  -p  Print brew tasks (for checking, not execute)"
 #    echo "  -I  Install and setup Homebrew"
     echo "  -P  Set network proxy cache.st.ryukoku.ac.jp:8080"
@@ -169,12 +170,12 @@ BASE=0
 ALL=0
 FORCE=""
 PRT=""
-while getopts uiapPlh opt; do
+while getopts uiapfPlh opt; do
     case $opt in
         u) BASE=0; ALL=0 ;;
         i) BASE=1 ;;
         a) ALL=1 ;;
-#        f) FORCE="--force" ;;
+        f) FORCE="--force" ;;
         p) PRT="echo" ;;
 #        I) INSTALL=1 ;;
         P) PROXY=1 ;;
