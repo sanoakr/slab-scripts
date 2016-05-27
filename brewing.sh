@@ -105,7 +105,6 @@ function ck_install() {
 # checked cask install
 function ck_cask_install() {
     pkg=$(echo $@ | cut -d " " -f 1)
-    echo $pkg
     if [ -z $(echo "$cask_installed" | grep -x $pkg) ] ; then
 	$PRT brew cask install $FORCE $@
     else
@@ -131,7 +130,7 @@ function cask_upgrade() {
 
 	if echo "$current" | grep -q "latest"; then
 	    $PRT find ${caskroom}/${a} -name "${current}" -maxdepth 1 -mtime +180 \
-		 -exec echo "*force reinstall: ${a}" \; \
+		 -exec echo "*force reinstall: ${a} (latest installed 180days before)" \; \
 		 -exec brew cask install --force ${a} \;
 	fi
 
