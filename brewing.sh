@@ -48,7 +48,6 @@ opt=("autoconf" \
 cask_base=("atom" \
     "coteditor" \
     "flash-player" \
-    "google-drive" \
     "google-japanese-ime" \
     "inkscape" \
     "iterm2" \
@@ -69,13 +68,14 @@ cask_opt=("alfred" \
 #    "bathyscaphe" \	      
     "caffeine" \
 #    "displaylink" \
-    "dropbox" \
+#    "dropbox" \
     "evernote" \
     "firefox" \
-    "flip4mac" \
+#    "flip4mac" \
     "github" \
+#    "google-drive" \
     "google-chrome" \
-    "google-earth" \
+#    "google-earth" \
 #    "google-music" \
     "grace" \
     "handbrake" \
@@ -83,9 +83,9 @@ cask_opt=("alfred" \
     "locko" \
     "mactracker" \
 #    "name-mangler" \
-#    "odrive" \
+    "odrive" \
     "omnidazzle" \
-    "processing" \
+#    "processing" \
     "radiant-player" \
     "skim" \
     "skype" \
