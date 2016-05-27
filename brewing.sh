@@ -54,7 +54,7 @@ cask_base=("atom" \
     "itsycal" \
     "latexit" \
     "mactex" \
-    "menumeters"
+#    "menumeters"
 #    "microsoft-office" \
     "pandoc" \
     "sublime-text" \
@@ -90,7 +90,7 @@ cask_opt=("alfred" \
     "skim" \
     "skype" \
     "sourcetree" \
-    "virtualbox" \
+#    "virtualbox" \
     "xbench")
 
 # checked install
@@ -123,17 +123,21 @@ function cask_upgrade() {
     for a in ${apps[@]};do
 	info=$(brew cask info $a)
 	if echo "$info"| grep -q "Not installed";then
-#	    $PRT brew cask uninstall $a
 	    $PRT brew cask install $a
 	fi
-	current=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1)
+
+	current=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
 	echo currnet $a: $current
+
+	if echo "$current" | grep -q "latest"; then
+	    $PRT find ${caskroom}/${a} -name "${current}" -maxdepth 1 -mtime +180 \
+		 -exec echo "*force reinstall: ${a}" \; \
+		 -exec brew cask install --force ${a} \;
+	fi
+
 	for dir in $(ls ${caskroom}/${a});do
-	    testdir="${caskroom}/${a}/${dir}"
-#	    echo testdir=$testdir
-#	    echo current=$current
-	    if [ "$testdir" != "$current" ];then
-		$PRT rm -rf "$testdir"
+	    if [ "$dir" != "$current" ];then
+		$PRT rm -rf "${caskroom}/${a}/${dir}"
 	    fi
 	done
     done
