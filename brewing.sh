@@ -19,6 +19,7 @@ base=("ack" \
     "python" \
     "python3" \
     "rename" \
+    "syncthing" \
     "rmtrash" \
     "tree" \
     "vim")
@@ -59,6 +60,7 @@ cask_base=("atom" \
     "pandoc" \
     "sublime-text" \
 #    "spideroakone" \
+    "syncthing-bar" \
     "texshop" \
     "the-unarchiver" \
     "vlc" \
