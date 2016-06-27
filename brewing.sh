@@ -85,7 +85,7 @@ cask_opt=("alfred" \
     "locko" \
     "mactracker" \
 #    "name-mangler" \
-    "odrive" \
+#    "odrive" \
     "omnidazzle" \
 #    "processing" \
     "radiant-player" \
