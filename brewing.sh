@@ -16,6 +16,8 @@ base=("ack" \
     "lv" \
     "nkf" \
     "openssl" \
+    "pget" \
+    "pyenv" \
     "python" \
     "python3" \
     "rename" \
@@ -211,6 +213,8 @@ echo "* Tapping homebrew/science"
 $PRT brew tap homebrew/science 2> /dev/null
 echo "* Tapping sanoakr/slab"
 $PRT brew tap sanoakr/slab 2> /dev/null
+echo "* Tapping Code-Hex/pget"
+$PRT brew tap Code-Hex/pget 2> /dev/null
 #brew tap hirocaster/homebrew-mozc-emacs-helper
 
 # Cask install
