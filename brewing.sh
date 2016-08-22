@@ -220,7 +220,8 @@ $PRT brew tap Code-Hex/pget 2> /dev/null
 # Cask install
 if [ ! $(brew tap | grep "caskroom/cask") ]; then 
     echo "* Install cask"
-    $PRT brew install caskroom/cask/brew-cask 2> /dev/null
+    $PRT brew tap caskroom/cask 2> /dev/null
+    #$PRT brew install caskroom/cask/brew-cask 2> /dev/null
 fi
 
 # list installed pkgs
