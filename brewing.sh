@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # CASK directories
-appdir=/Applications
 caskroom=/usr/local/Caskroom
-export HOMEBREW_CASK_OPTS="--appdir=$appdir --caskroom=$caskroom"
+export HOMEBREW_CASK_OPTS="--caskroom=$caskroom"
+#appdir=/Applications
+#export HOMEBREW_CASK_OPTS="--appdir=$appdir --caskroom=$caskroom"
 
 # packages
 base=("ack" \
