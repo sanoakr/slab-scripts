@@ -10,6 +10,7 @@ export HOMEBREW_CASK_OPTS="--caskroom=$caskroom"
 base=("ack" \
     "aspell --with-lang-en" \
     "bash-completion" \
+    "bullet --with-double-precision --with-framework --with-shared" \
     "cmake" \
     "emacs --with-cocoa --japanese" \
     "git" \
