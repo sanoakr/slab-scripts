@@ -25,6 +25,7 @@ base=("ack" \
     "python3" \
     "rename" \
     "syncthing" \
+    "syncthing-inotify" \
     "rmtrash" \
     "tree" \
     "vim")
