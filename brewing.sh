@@ -24,8 +24,6 @@ base=("ack" \
     "python" \
     "python3" \
     "rename" \
-    "syncthing" \
-    "syncthing-inotify" \
     "rmtrash" \
     "tree" \
     "vim")
@@ -45,6 +43,8 @@ opt=("autoconf" \
     "pkg-config" \
     "readline" \
     "ruby" \
+    "syncthing" \
+    "syncthing-inotify" \
     "terminal-notifier" \
     "tiger-vnc" \
     "unrar" \
@@ -66,7 +66,6 @@ cask_base=("atom" \
     "pandoc" \
     "sublime-text" \
 #    "spideroakone" \
-    "syncthing-bar" \
     "texshop" \
     "the-unarchiver" \
     "vlc" \
@@ -98,6 +97,7 @@ cask_opt=("alfred" \
     "skim" \
     "skype" \
     "sourcetree" \
+    "syncthing-bar" \
 #    "virtualbox" \
     "xbench")
 
