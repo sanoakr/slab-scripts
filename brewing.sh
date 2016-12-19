@@ -40,6 +40,7 @@ opt=("autoconf" \
     "numpy" \
     "ode-drawstuff --enable-demos" \
     "opencv" \
+    "pandoc" \
     "pkg-config" \
     "readline" \
     "ruby" \
@@ -63,7 +64,6 @@ cask_base=("atom" \
     "mactex" \
 #    "menumeters"
 #    "microsoft-office" \
-    "pandoc" \
     "sublime-text" \
 #    "spideroakone" \
     "texshop" \
