@@ -133,14 +133,19 @@ function cask_upgrade() {
 	    $PRT brew cask install $a
 	fi
 
-	current=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
-	echo currnet $a: $current
+	current=$(brew cask info $a|grep "${a}: "|cut -d' ' -f2)
+	echo $a current: $current
+	installed=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
+	echo $a installed: $installed
 
-	if echo "$current" | grep -q "latest"; then
-	    $PRT find ${caskroom}/${a} -name "${current}" -maxdepth 1 -mtime +180 \
-		 -exec echo "*force reinstall: ${a} (latest installed 180days before)" \; \
-		 -exec brew cask reinstall ${a} \;
-	    
+	if [ $current = $installed ]; then
+	    if echo "$installed" | grep -q "latest"; then
+		$PRT find ${caskroom}/${a} -name "${installed}" -maxdepth 1 -mtime +180 \
+		     -exec echo "*force reinstall: ${a} (latest installed 180days before)" \; \
+		     -exec brew cask reinstall ${a} \;
+	    fi
+	else
+	    $PRT brew cask reinstall ${a}
 	fi
 
 	for dir in $(ls ${caskroom}/${a});do
