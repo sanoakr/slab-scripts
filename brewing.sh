@@ -86,7 +86,7 @@ cask_opt=("alfred" \
 #    "google-music" \
     "grace" \
     "handbrake" \
-    "handbrakecli" \
+#    "handbrakecli" \
     "locko" \
     "mactracker" \
 #    "name-mangler" \
