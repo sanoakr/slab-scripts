@@ -23,6 +23,18 @@ base=("ack" \
     "pyenv" \
     "python" \
     "python3" \
+# QuickLook Plugins
+    "qlcolorcode" \
+    "qlstephen" \
+    "qlmarkdown" \
+    "quicklook-json" \
+    "qlprettypatch" \
+    "quicklook-csv" \
+    "betterzipql" \
+    "qlimagesize" \
+    "webpquicklook" \
+    "suspicious-package" \
+# QuickLook Plugins END
     "rename" \
     "rmtrash" \
     "tree" \
