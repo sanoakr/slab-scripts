@@ -99,7 +99,7 @@ cask_opt=("alfred" \
     "grace" \
     "handbrake" \
 #    "handbrakecli" \
-    "locko" \
+#    "locko" \
     "mactracker" \
 #    "name-mangler" \
 #    "odrive" \
