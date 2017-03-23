@@ -54,7 +54,8 @@ opt=("autoconf" \
     "webkit2png" \
     "wget" \
     "xz")
-cask_base=("atom" \
+cask_base=("aquaterm" \
+    "atom" \
     "coteditor" \
     "flash-player" \
     "google-japanese-ime" \
