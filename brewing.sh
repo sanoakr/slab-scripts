@@ -36,6 +36,7 @@ opt=("autoconf" \
     "ddrescue" \
     "erlang" \
     "gnu-sed" \
+    "grace" \
     "kindlegen" \
     "numpy" \
     "ode-drawstuff --enable-demos" \
@@ -91,12 +92,11 @@ cask_opt=("alfred" \
     "evernote" \
     "firefox" \
 #    "flip4mac" \
-    "github" \
+    "github-desktop" \
 #    "google-drive" \
     "google-chrome" \
 #    "google-earth" \
 #    "google-music" \
-    "grace" \
     "handbrake" \
 #    "handbrakecli" \
 #    "locko" \
