@@ -82,6 +82,8 @@ cask_base=("aquaterm" \
 #    "spideroakone" \
     "texshop" \
     "the-unarchiver" \
+    "timer" \
+    "thyme" \
     "vlc" \
     "xquartz")
 cask_opt=("alfred" \
