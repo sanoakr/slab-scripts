@@ -13,6 +13,7 @@ base=("ack" \
     "bullet --with-double-precision --with-framework --with-shared" \
     "cmake" \
     "emacs --with-cocoa --japanese" \
+    "fish" \
     "git" \
     "gnuplot --with-aquaterm --with-cairo --with-pdflib-lite --with-tex --with-x11" \
     "imagemagick" \
