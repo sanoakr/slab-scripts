@@ -90,7 +90,7 @@ cask_base=("aquaterm" \
     "xquartz")
 cask_opt=("alfred" \
     "appcleaner" \
-#    "bathyscaphe" \	      
+#    "bathyscaphe" \      
     "caffeine" \
 #    "displaylink" \
 #    "dropbox" \
@@ -155,7 +155,7 @@ function cask_upgrade() {
 	installed=$(brew cask info $a|grep "${caskroom}/${a}"|grep -v "wrapper" \
 		| cut -d' ' -f1|cut -d'/' -f6)
 	#installed=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
-	echo $a installed: $installed
+	echo \\tinstalled: $installed
 
 	if [ $current = $installed ]; then
 	    if echo "$installed" | grep -q "latest"; then
