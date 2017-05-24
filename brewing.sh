@@ -56,7 +56,7 @@ opt=("autoconf" \
     "wget" \
     "xz")
 cask_base=("aquaterm" \
-    "atom" \
+#    "atom" \
     "coteditor" \
     "flash-player" \
     "google-japanese-ime" \
@@ -85,6 +85,7 @@ cask_base=("aquaterm" \
     "the-unarchiver" \
     "timer" \
     "thyme" \
+    "visual-studio-code" \
     "vlc" \
     "xquartz")
 cask_opt=("alfred" \
