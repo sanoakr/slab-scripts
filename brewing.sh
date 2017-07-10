@@ -151,7 +151,7 @@ function cask_upgrade() {
 	fi
 
 	current=$(brew cask info $a|grep "${a}: "|cut -d' ' -f2)
-	echo -n $a current: $current
+	echo -n "$a\\tcurrent: $current"
 	installed=$(brew cask info $a|grep "${caskroom}/${a}"|grep -v "wrapper" \
 		| cut -d' ' -f1|cut -d'/' -f6)
 	#installed=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
