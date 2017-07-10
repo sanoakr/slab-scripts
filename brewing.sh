@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CASK directories
-#caskroom=/usr/local/Caskroom
+caskroom=/usr/local/Caskroom
 #export HOMEBREW_CASK_OPTS="--caskroom=$caskroom"
 #appdir=/Applications
 #export HOMEBREW_CASK_OPTS="--appdir=$appdir --caskroom=$caskroom"
@@ -157,7 +157,7 @@ function cask_upgrade() {
 	#installed=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
 	echo -e ";\\tinstalled: $installed"
 
-	if [ $current = $installed ]; then
+	if [ "$current" = "$installed" ]; then
 	    if echo "$installed" | grep -q "latest"; then
 		$PRT find ${caskroom}/${a} -name "${installed}" -maxdepth 1 -mtime +180 \
 		     -exec echo "*force reinstall: ${a} (latest installed 180days before)" \; \
