@@ -151,11 +151,11 @@ function cask_upgrade() {
 	fi
 
 	current=$(brew cask info $a|grep "${a}: "|cut -d' ' -f2)
-	echo $a current: $current
+	echo -n $a current: $current
 	installed=$(brew cask info $a|grep "${caskroom}/${a}"|grep -v "wrapper" \
 		| cut -d' ' -f1|cut -d'/' -f6)
 	#installed=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
-	echo \\tinstalled: $installed
+	echo -e ";\\tinstalled: $installed"
 
 	if [ $current = $installed ]; then
 	    if echo "$installed" | grep -q "latest"; then
