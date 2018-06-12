@@ -10,12 +10,12 @@ caskroom=/usr/local/Caskroom
 base=("ack" \
     "aspell --with-lang-en" \
     "bash-completion" \
-    "bullet --with-double-precision --with-framework --with-shared" \
+#    "bullet --with-double-precision --with-framework --with-shared" \
     "cmake" \
     "emacs --with-cocoa --japanese" \
     "fish" \
     "git" \
-    "gnuplot --with-aquaterm --with-cairo --with-pdflib-lite --with-tex --with-x11" \
+    "gnuplot --with-aquaterm --with-cairo --with-pdflib-lite --with-tex --with-x11 --with-qt" \
     "imagemagick" \
     "lv" \
     "nkf" \
@@ -23,7 +23,7 @@ base=("ack" \
     "pget" \
     "pyenv" \
     "python" \
-    "python3" \
+#    "python3" \
     "rename" \
     "rmtrash" \
     "tree" \
@@ -33,23 +33,23 @@ opt=("autoconf" \
     "binutils" \
     "boost" \
     "boost-python" \
-    "byobu" \
+#    "byobu" \
     "ddrescue" \
-    "erlang" \
+#    "erlang" \
     "gnu-sed" \
     "grace" \
     "kindlegen" \
-    "numpy" \
-    "ode-drawstuff --enable-demos" \
+#    "numpy" \
+#    "ode-drawstuff --enable-demos" \
     "opencv" \
     "pandoc" \
     "pkg-config" \
     "readline" \
     "ruby" \
-    "syncthing" \
-    "syncthing-inotify" \
+#    "syncthing" \
+#    "syncthing-inotify" \
     "terminal-notifier" \
-    "tiger-vnc" \
+#    "tiger-vnc" \
     "unrar" \
     "w3m" \
     "webkit2png" \
@@ -61,7 +61,7 @@ cask_base=("aquaterm" \
     "flash-player" \
     "google-japanese-ime" \
     "inkscape" \
-    "iterm2" \
+#    "iterm2" \
     "itsycal" \
     "latexit" \
     "mactex" \
@@ -95,7 +95,7 @@ cask_opt=("alfred" \
 #    "displaylink" \
 #    "dropbox" \
     "evernote" \
-    "firefox" \
+#    "firefox" \
 #    "flip4mac" \
     "github-desktop" \
 #    "google-drive" \
@@ -112,9 +112,9 @@ cask_opt=("alfred" \
 #    "processing" \
     "radiant-player" \
     "skim" \
-    "skype" \
+#    "skype" \
     "sourcetree" \
-    "syncthing-bar" \
+#    "syncthing-bar" \
 #    "virtualbox" \
     "xbench")
 
