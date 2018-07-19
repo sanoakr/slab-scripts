@@ -61,7 +61,7 @@ cask_base=("aquaterm" \
     "flash-player" \
     "google-japanese-ime" \
     "inkscape" \
-#    "iterm2" \
+    "iterm2" \
     "itsycal" \
     "latexit" \
     "mactex" \
