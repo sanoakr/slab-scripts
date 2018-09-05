@@ -65,6 +65,7 @@ cask_base=("aquaterm" \
     "itsycal" \
     "latexit" \
     "mactex" \
+    "microsoft-teams" \
 #    "menumeters"
 #    "microsoft-office" \
 # QuickLook Plugins
@@ -77,6 +78,7 @@ cask_base=("aquaterm" \
     "betterzipql" \
     "qlimagesize" \
     "webpquicklook" \
+    "slack" \
     "suspicious-package" \
 # QuickLook Plugins END
     "sublime-text" \
