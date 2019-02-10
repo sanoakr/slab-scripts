@@ -21,9 +21,7 @@ base=("ack" \
     "nkf" \
     "openssl" \
     "pget" \
-    "pyenv" \
     "python" \
-#    "python3" \
     "rename" \
     "rmtrash" \
     "tree" \
@@ -37,7 +35,7 @@ opt=("autoconf" \
     "ddrescue" \
 #    "erlang" \
     "gnu-sed" \
-    "grace" \
+#    "grace" \
     "kindlegen" \
 #    "numpy" \
 #    "ode-drawstuff --enable-demos" \
@@ -57,18 +55,18 @@ opt=("autoconf" \
     "xz")
 cask_base=("aquaterm" \
 #    "atom" \
-    "coteditor" \
+#    "coteditor" \
     "flash-player" \
     "google-japanese-ime" \
-    "inkscape" \
+#    "inkscape" \
     "iterm2" \
-    "itsycal" \
+#    "itsycal" \
     "latexit" \
     "mactex" \
     "microsoft-teams" \
 #    "menumeters"
 #    "microsoft-office" \
-# QuickLook Plugins
+### QuickLook Plugins
     "qlcolorcode" \
     "qlstephen" \
     "qlmarkdown" \
@@ -78,10 +76,10 @@ cask_base=("aquaterm" \
     "betterzipql" \
     "qlimagesize" \
     "webpquicklook" \
-    "slack" \
     "suspicious-package" \
 # QuickLook Plugins END
-    "sublime-text" \
+    "slack" \
+#    "sublime-text" \
 #    "spideroakone" \
     "texshop" \
     "the-unarchiver" \
@@ -115,7 +113,7 @@ cask_opt=("alfred" \
     "radiant-player" \
     "skim" \
 #    "skype" \
-    "sourcetree" \
+#    "sourcetree" \
 #    "syncthing-bar" \
 #    "virtualbox" \
     "xbench")
