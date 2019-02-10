@@ -139,7 +139,7 @@ function ck_cask_install() {
 # cleanup
 function cleanup() {
     brew cleanup
-    brew cask cleanup
+#    brew cask cleanup
 }
 # cleaned cask upgrade
 function cask_upgrade() {
