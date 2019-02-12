@@ -12,10 +12,10 @@ base=("ack" \
     "bash-completion" \
 #    "bullet --with-double-precision --with-framework --with-shared" \
     "cmake" \
-    "emacs --with-cocoa --japanese" \
+#    "emacs --with-cocoa --japanese" \
     "fish" \
     "git" \
-    "gnuplot --with-aquaterm --with-cairo --with-pdflib-lite --with-tex --with-x11 --with-qt" \
+    "gnuplot" \
     "imagemagick" \
     "lv" \
     "nkf" \
@@ -56,6 +56,7 @@ opt=("autoconf" \
 cask_base=("aquaterm" \
 #    "atom" \
 #    "coteditor" \
+    "emacs" \
     "flash-player" \
     "google-japanese-ime" \
 #    "inkscape" \
