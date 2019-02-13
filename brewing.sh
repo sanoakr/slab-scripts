@@ -2,9 +2,6 @@
 
 # CASK directories
 caskroom=/usr/local/Caskroom
-#export HOMEBREW_CASK_OPTS="--caskroom=$caskroom"
-#appdir=/Applications
-#export HOMEBREW_CASK_OPTS="--appdir=$appdir --caskroom=$caskroom"
 
 # packages
 base=("ack" \
@@ -36,7 +33,7 @@ opt=("autoconf" \
 #    "erlang" \
     "gnu-sed" \
 #    "grace" \
-    "kindlegen" \
+#    "kindlegen" \
 #    "numpy" \
 #    "ode-drawstuff --enable-demos" \
     "opencv" \
@@ -74,8 +71,8 @@ cask_base=("aquaterm" \
     "quicklook-json" \
     "qlprettypatch" \
     "quicklook-csv" \
-    "betterzipql" \
-    "qlimagesize" \
+#    "betterzipql" \
+#    "qlimagesize" \
     "webpquicklook" \
     "suspicious-package" \
 # QuickLook Plugins END
@@ -98,7 +95,7 @@ cask_opt=("alfred" \
     "evernote" \
 #    "firefox" \
 #    "flip4mac" \
-    "github-desktop" \
+#    "github-desktop" \
 #    "google-drive" \
     "google-chrome" \
 #    "google-earth" \
