@@ -50,11 +50,12 @@ opt=("autoconf" \
     "webkit2png" \
     "wget" \
     "xz")
-cask_base=("aquaterm" \
+cask_base=( \
+#    "aquaterm" \
 #    "atom" \
 #    "coteditor" \
     "emacs" \
-    "flash-player" \
+#    "flash-player" \
     "google-japanese-ime" \
 #    "inkscape" \
     "iterm2" \
@@ -86,7 +87,8 @@ cask_base=("aquaterm" \
     "visual-studio-code" \
     "vlc" \
     "xquartz")
-cask_opt=("alfred" \
+cask_opt=( \
+    "alfred" \
     "appcleaner" \
 #    "bathyscaphe" \      
     "caffeine" \
@@ -106,7 +108,7 @@ cask_opt=("alfred" \
     "mactracker" \
 #    "name-mangler" \
 #    "odrive" \
-    "omnidazzle" \
+#    "omnidazzle" \
 #    "processing" \
     "radiant-player" \
     "skim" \
@@ -236,8 +238,8 @@ fi
 # Add Repository
 echo "* Tapping homebrew/binary"
 $PRT brew tap homebrew/binary 2> /dev/null
-echo "* Tapping homebrew/science"
-$PRT brew tap homebrew/science 2> /dev/null
+#echo "* Tapping homebrew/science"
+#$PRT brew tap homebrew/science 2> /dev/null
 echo "* Tapping sanoakr/slab"
 $PRT brew tap sanoakr/slab 2> /dev/null
 echo "* Tapping Code-Hex/pget"
