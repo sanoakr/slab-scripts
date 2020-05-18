@@ -46,7 +46,7 @@ opt=("autoconf" \
     "terminal-notifier" \
 #    "tiger-vnc" \
     "unrar" \
-    "w3m" \
+#    "w3m" \
     "webkit2png" \
     "wget" \
     "xz")
@@ -60,7 +60,7 @@ cask_base=( \
 #    "inkscape" \
     "iterm2" \
 #    "itsycal" \
-    "latexit" \
+#    "latexit" \
     "mactex" \
     "microsoft-teams" \
 #    "menumeters"
@@ -84,7 +84,8 @@ cask_base=( \
     "the-unarchiver" \
     "timer" \
     "thyme" \
-    "visual-studio-code" \
+    "visual-studio-code-insiders" \
+#    "visual-studio-code" \
     "vlc" \
     "xquartz")
 cask_opt=( \
@@ -111,12 +112,13 @@ cask_opt=( \
 #    "omnidazzle" \
 #    "processing" \
     "radiant-player" \
-    "skim" \
+#    "skim" \
 #    "skype" \
 #    "sourcetree" \
 #    "syncthing-bar" \
 #    "virtualbox" \
-    "xbench")
+#    "xbench" \
+)
 
 # checked install
 function ck_install() {
