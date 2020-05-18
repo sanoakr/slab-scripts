@@ -27,6 +27,13 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x5b-0x140000</key>
+		<dict>
+			<key>Action</key>
+			<integer>3</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x5b-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -38,6 +45,13 @@
 		<dict>
 			<key>Action</key>
 			<integer>30</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x5d-0x140000</key>
+		<dict>
+			<key>Action</key>
+			<integer>1</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -69,13 +83,6 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x7b-0x160000</key>
-		<dict>
-			<key>Action</key>
-			<integer>3</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
 		<key>0x7b-0x60000</key>
 		<dict>
 			<key>Action</key>
@@ -87,13 +94,6 @@
 		<dict>
 			<key>Action</key>
 			<integer>32</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x7d-0x160000</key>
-		<dict>
-			<key>Action</key>
-			<integer>1</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -247,7 +247,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>2 4 850 537 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>14 439 710 274 0 0 1920 1177 </string>
+	<string>7 4 850 537 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>15 15 710 417 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -933,7 +933,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>99D1631E-1F01-4B32-8CB7-D88D54FCDF22</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>12</integer>
+	<integer>13</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
