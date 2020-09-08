@@ -163,10 +163,10 @@ function cask_upgrade() {
 	    if echo "$installed" | grep -q "latest"; then
 		$PRT find ${caskroom}/${a} -name "${installed}" -maxdepth 1 -mtime +180 \
 		     -exec echo "*force reinstall: ${a} (latest installed 180days before)" \; \
-		     -exec brew cask reinstall ${a} \;
+		     -exec brew reinstall ${a} \;
 	    fi
 	else
-	    $PRT brew cask reinstall ${a}
+	    $PRT brew reinstall ${a}
 	fi
 
 	for dir in $(ls ${caskroom}/${a});do
