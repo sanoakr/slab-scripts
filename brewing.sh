@@ -66,7 +66,6 @@ cask_base=( \
 #    "menumeters"
 #    "microsoft-office" \
 ### QuickLook Plugins
-    "qlcolorcode" \
     "qlstephen" \
     "qlmarkdown" \
     "quicklook-json" \
@@ -147,14 +146,14 @@ function cleanup() {
 function cask_upgrade() {
     apps=($(brew cask list))
     for a in ${apps[@]};do
-	info=$(brew cask info $a)
+	info=$(brew info --cask $a)
 	if echo "$info"| grep -q "Not installed";then
 	    $PRT brew cask install $a
 	fi
 
-	current=$(brew cask info $a|grep "${a}: "|cut -d' ' -f2)
+	current=$(brew info --cask $a|grep "${a}: "|cut -d' ' -f2)
 	echo -en "$a:\\tcurrent: $current"
-	installed=$(brew cask info $a|grep "${caskroom}/${a}"|grep -v "wrapper" \
+	installed=$(brew info --cask $a|grep "${caskroom}/${a}"|grep -v "wrapper" \
 		| cut -d' ' -f1|cut -d'/' -f6)
 	#installed=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
 	echo -e ";\\tinstalled: $installed"
