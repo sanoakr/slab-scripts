@@ -132,7 +132,7 @@ function ck_install() {
 function ck_cask_install() {
     pkg=$(echo $@ | cut -d " " -f 1)
     if [ -z $(echo "$cask_installed" | grep -x $pkg) ] ; then
-	$PRT brew cask install $FORCE $@
+	$PRT brew install --cask $FORCE $@
     else
 	echo "$pkg is already installed"
     fi
@@ -144,18 +144,18 @@ function cleanup() {
 }
 # cleaned cask upgrade
 function cask_upgrade() {
-    apps=($(brew cask list))
+    apps=($(brew list --cask))
     for a in ${apps[@]};do
 	info=$(brew info --cask $a)
 	if echo "$info"| grep -q "Not installed";then
-	    $PRT brew cask install $a
+	    $PRT brew install --cask $a
 	fi
 
 	current=$(brew info --cask $a|grep "${a}: "|cut -d' ' -f2)
 	echo -en "$a:\\tcurrent: $current"
 	installed=$(brew info --cask $a|grep "${caskroom}/${a}"|grep -v "wrapper" \
 		| cut -d' ' -f1|cut -d'/' -f6)
-	#installed=$(brew cask info $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
+	#installed=$(brew info --cask $a|grep "${caskroom}/${a}"|cut -d' ' -f1|cut -d'/' -f6)
 	echo -e ";\\tinstalled: $installed"
 
 	if [ "$current" = "$installed" ]; then
@@ -256,7 +256,7 @@ fi
 
 # list installed pkgs
 installed=$(brew list)
-cask_installed=$(brew cask list)
+cask_installed=$(brew list --cask)
 
 echo "* brew updating"
 $PRT brew update -v | while read; do echo -n .; done
